@@ -8,7 +8,7 @@ steps:
     helm_command: upgrade
     chart: ./
     release: my-project
- #   api_server:
- #     from_secret: prod_api_server
+    api_server:
+      from_secret: https://192.168.59.103:8443
  #   kubernetes_token:
  #     from_secret: prod_kubernetes_token
