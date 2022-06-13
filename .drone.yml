@@ -1,12 +1,14 @@
 kind: pipeline
 name: default
+
 steps:
-- name: helm_deploy
-  image: fpedrazas/drone-helm
+- name: deploy_production
+  image: pelotech/drone-helm3
   settings:
-    skip_tls_verify: true
+    helm_command: upgrade
     chart: ./
-    release: ${DRONE_BRANCH}
-    values: secret.password=${SECRET_PASSWORD},image.tag=${TAG}
-    prefix: STAGING
-    namespace: development
+    release: my-project
+ #   api_server:
+ #     from_secret: prod_api_server
+ #   kubernetes_token:
+ #     from_secret: prod_kubernetes_token
