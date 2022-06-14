@@ -8,8 +8,8 @@ steps:
     helm_command: upgrade
     chart: ./
     release: my-project
-    kube_api_server: https://192.168.59.103:8443
-#    api_server: 
-#      from_secret:
+    kube_api_server: https://B0B61980C6FE09F0D87F35449D6C813B.gr7.eu-central-1.eks.amazonaws.com
     kubernetes_token:
-      from_secret: default-token-rfnqw
+      from_secret: default-token-zshz2-token
+    kube_certificate:
+      from_secret: default-token-zshz2
