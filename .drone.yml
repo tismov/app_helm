@@ -8,8 +8,7 @@ steps:
     helm_command: upgrade
     chart: ./
     release: my-project
+    api_server:
+      from_secret: drone-url
     kubernetes_token:
       from_secret: drone-token
-    kube_certificate:
-      from_secret: drone-cert
-    kube_api_server: https://DD3DD9803497DB4F8B4D567D9E743B18.gr7.eu-central-1.eks.amazonaws.com
