@@ -12,3 +12,5 @@ steps:
       from_secret: drone-url
     kubernetes_token:
       from_secret: drone-token
+    kube_certificate:
+      from_secret: drone-cert
