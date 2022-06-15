@@ -10,7 +10,7 @@ steps:
     release: my-project
     kube_api_server:
       from_secret: url
-   # kube_token:
-    #  from_secret: token
+    kube_token:
+      from_secret: token
     kube_certificate: 
       from_secret: cert    
