@@ -1,16 +1,14 @@
 kind: pipeline
+type: kubernetes
 name: default
 
 steps:
-- name: deploy_production
-  image: pelotech/drone-helm3
+- name: Deploy app
+  image: danielgormly/drone-plugin-kube:0.0.1
   settings:
-    helm_command: upgrade
-    chart: ./
-    release: my-project
-    kube_api_server:
-      from_secret: url
-    kube_token:
+    template: /home/tismov/tasks/task06/app_helm/kube.yml # relative to repo root
+    ca:
+      from_secret: cert
+    server: https://192.168.59.104:8443
+    token:
       from_secret: token
-    kube_certificate: 
-      from_secret: cert    
