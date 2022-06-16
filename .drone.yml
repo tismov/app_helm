@@ -12,5 +12,5 @@ steps:
       from_secret: url
     kube_token:
       from_secret: token
-   # kube_certificate: 
-   #   from_secret: cert    
+    kube_certificate: 
+      from_secret: cert    
