@@ -6,7 +6,7 @@ steps:
 - name: Deploy app
   image: danielgormly/drone-plugin-kube:0.0.1
   settings:
-    template: kube.yml
+    template: /kube.yml
     ca:
       from_secret: cert
     server: https://192.168.59.104:8443
