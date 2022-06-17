@@ -4,7 +4,7 @@ name: default
 
 steps:
 - name: Deploy
-  image: vallard/drone-kube
+  image: quay.io/honestbee/drone-kubernetes
   settings:
     template: kube.yml
     ca:
