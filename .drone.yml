@@ -12,6 +12,6 @@ steps:
       from_secret: token
     namespace: app
     deployment: my-deployment
-    repo: myorg/myrepo
-    container: my-container
+    # repo: myorg/myrepo
+    container: dockersamples/k8s-wordsmith-web
     tag: mytag
