@@ -1,17 +1,14 @@
 kind: pipeline
 name: default
-type: kubernetes
 
 steps:
 - name: deploy
-  image: quay.io/honestbee/drone-kubernetes
+  image: pelotech/drone-helm3
   settings:
-    kubernetes_server:
-      from_secret:  url
+    helm_command: upgrade
+    chart: template/
+    release: my-project
+    api_server:
+      from_secret: url
     kubernetes_token:
       from_secret: token
-    namespace: app
-    deployment: my-deployment
-    # repo: myorg/myrepo
-    container: dockersamples/k8s-wordsmith-web
-    tag: mytag
