@@ -8,7 +8,7 @@ steps:
     force_upgrade: true
     update_dependencies: true
     helm_command: upgrade
-    chart: ./template/
+    chart: template
     release: my-project
     api_server: https://api.cluster.turali7v.click
     kubernetes_token:
