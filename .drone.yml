@@ -8,7 +8,8 @@ steps:
     helm_command: upgrade
     chart: template/
     release: my-project
-    api_server:
-      from_secret: url
+    api_server: https://api.cluster.turali7v.click
     kubernetes_token:
-      from_secret: token
+      from_secret: k8s_token
+    kube_certificate:
+      from_secret: k8s_cert
