@@ -5,7 +5,7 @@ steps:
 - name: deploy
   image: pelotech/drone-helm3
   settings:
-    force_upgrade: true
+    force_upgrade: --force
     helm_command: upgrade
     chart: template/
     release: my-project
