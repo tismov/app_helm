@@ -2,8 +2,8 @@ kind: pipeline
 name: default
 
 steps:
+debug: true
 - name: deploy
-  debug: true
   image: pelotech/drone-helm3
   settings:
     helm_command: upgrade
