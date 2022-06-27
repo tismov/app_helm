@@ -13,3 +13,4 @@ steps:
       from_secret: k8s_token
     kube_certificate:
       from_secret: k8s_cert
+  debug: true
