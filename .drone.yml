@@ -6,6 +6,7 @@ steps:
   image: pelotech/drone-helm3
   settings:
     force_upgrade: true
+    update_dependencies: true
     helm_command: upgrade
     chart: ./template/
     release: my-project
