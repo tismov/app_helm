@@ -5,11 +5,9 @@ steps:
 - name: deploy
   image: pelotech/drone-helm3
   settings:
-    force_upgrade: true
-    update_dependencies: true
     helm_command: upgrade
-    chart: template
-    release: my-project
+    chart: .
+    release: myproject
     api_server: https://api.cluster.turali7v.click
     kubernetes_token:
       from_secret: k8s_token
