@@ -3,6 +3,7 @@ name: default
 
 steps:
 - name: deploy
+  debug: true
   image: pelotech/drone-helm3
   settings:
     helm_command: upgrade
@@ -13,4 +14,4 @@ steps:
       from_secret: k8s_token
     kube_certificate:
       from_secret: k8s_cert
-  debug: true
+  
