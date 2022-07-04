@@ -49,5 +49,5 @@ steps:
       # kubernetes_token:
       #   from_secret: k8s_token
       # kube_certificate:
-      #   from_secret: k8s_cert
+      #   from_secret: k8s_certd
   
