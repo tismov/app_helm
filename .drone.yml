@@ -3,7 +3,7 @@ name: default
 
 steps:
 
-  - name: copy file to aws s3
+  - name: copy file from aws s3
     image: amazon/aws-cli
     environment:
       accesskey:
@@ -19,7 +19,7 @@ steps:
       - aws s3 cp s3://k8s-kubeconfig-i7v/config ./
       - ls -al
 
-  - name: create file
+  - name: check config
     image: turik207/kubectl:1.23
     environment:
       keyid:
@@ -31,10 +31,16 @@ steps:
       - ls -la
       - export KUBECONFIG=$PWD
       - kubectl version --client
+      - kubectl get nodes
       - ls -al
 
   - name: deploy
     image: pelotech/drone-helm3
+    commands:
+      - pwd
+      - export KUBECONFIG=$PWD
+      - ls -la
+
     settings:
       helm_command: upgrade
       chart: .
