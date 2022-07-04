@@ -40,7 +40,6 @@ steps:
       - pwd
       - export KUBECONFIG=$PWD/config
       - ls -la
-
     settings:
       helm_command: upgrade
       chart: .
