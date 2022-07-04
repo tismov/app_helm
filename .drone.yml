@@ -38,7 +38,7 @@ steps:
     image: pelotech/drone-helm3
     commands:
       - pwd
-      - export KUBECONFIG=$PWD
+      - export KUBECONFIG=$PWD/config
       - ls -la
 
     settings:
