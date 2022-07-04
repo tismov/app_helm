@@ -2,15 +2,46 @@ kind: pipeline
 name: default
 
 steps:
-- name: deploy
-  image: pelotech/drone-helm3
-  settings:
-    helm_command: upgrade
-    chart: .
-    release: myproject
-    api_server: https://api.cluster.turali7v.click
-    kubernetes_token:
-      from_secret: k8s_token
-    kube_certificate:
-      from_secret: k8s_cert
+
+  - name: copy file to aws s3
+    image: amazon/aws-cli
+    environment:
+      accesskey:
+        from_secret: seckeyid
+      secretkey:
+        from_secret: seckey
+    commands:
+      - export $accesskey
+      - export $secretkey
+      - aws --version
+      - ls -al
+      - aws s3 ls k8s-kubeconfig-i7v
+      - aws s3 cp s3://k8s-kubeconfig-i7v/config ./
+      - ls -al
+
+  - name: create file
+    image: turik207/kubectl:1.23
+    environment:
+      keyid:
+        from_secret: keyid
+      key:
+        from_secret: key
+    commands:
+      - pwd
+      - ls -la
+      - export KUBECONFIG=$PWD
+      - kubectl version --client
+      - ls -al
+
+  - name: deploy
+    image: pelotech/drone-helm3
+    settings:
+      helm_command: upgrade
+      chart: .
+      release: myproject
+      # api_server: https://api.cluster.turali7v.click
+      # kubernetes_token:
+      #   from_secret: k8s_token
+      # kube_certificate:
+      #   from_secret: k8s_cert
   
