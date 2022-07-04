@@ -29,7 +29,7 @@ steps:
     commands:
       - pwd
       - ls -la
-      - export KUBECONFIG=$PWD
+      - export KUBECONFIG=$PWD/config
       - kubectl version --client
       - kubectl get nodes
       - ls -al
