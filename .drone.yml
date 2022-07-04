@@ -36,14 +36,14 @@ steps:
 
   - name: deploy
     image: pelotech/drone-helm3
-    commands:
-      - pwd
-      - export KUBECONFIG=$PWD/config
-      - ls -la
     settings:
       helm_command: upgrade
       chart: .
       release: myproject
+    commands:
+      - pwd
+      - export KUBECONFIG=$PWD/config
+      - ls -la
       # api_server: https://api.cluster.turali7v.click
       # kubernetes_token:
       #   from_secret: k8s_token
